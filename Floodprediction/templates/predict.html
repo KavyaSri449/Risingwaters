@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flood Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            text-align: center; /* Center align the text */
+        }
+        h3 {
+            font-size: 24px; /* Larger font size for headings */
+        }
+        .flood-warning {
+            color: red; /* Red for flood warnings */
+        }
+        .no-flood {
+            color: green; /* Green for no flood risk */
+        }
+        a {
+            display: inline-block; /* Make link a block for better spacing */
+            margin-top: 20px;
+            color: blue; /* Change link color */
+            text-decoration: underline; /* Underline the link */
+        }
+    </style>
+</head>
+<body>
+    <h1>Flood Prediction Result</h1>
+    <h2>Your Prediction: {{ Prediction }}</h2>
+
+    {% if Prediction == '1' %}
+        <h3 class="flood-warning">Warning: Flood Risk Detected!</h3>
+        <p>Please take necessary precautions:</p>
+        <ul>
+            <li>Move to higher ground immediately.</li>
+            <li>Avoid walking or driving through floodwaters.</li>
+            <li>Listen to local news for updates.</li>
+            <li>Prepare an emergency kit with essential supplies.</li>
+            <li>Stay indoors if flooding occurs in your area.</li>
+        </ul>
+    {% else %}
+        <h3 class="no-flood">No Flood Risk Detected!</h3>
+        <p>You can continue with your daily activities, but stay alert for any weather updates.</p>
+    {% endif %}
+    
+    <a href="/">Back to Submission</a>
+</body>
+</html>
